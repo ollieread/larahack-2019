@@ -43,4 +43,43 @@ class Idea extends Entity
 
         return $this;
     }
+
+    public function update(array $data): self
+    {
+        if (isset($data['user'])) {
+            $this->user   = $data['user'];
+            $this->userId = $this->user->id;
+        }
+
+        if (isset($data['category'])) {
+            $this->category   = $data['category'];
+            $this->categoryId = $this->category->id;
+        }
+
+        if (isset($data['title'])) {
+            $this->title = $data['title'];
+        }
+
+        if (isset($data['slug'])) {
+            $this->slug = $data['slug'];
+        }
+
+        if (isset($data['excerpt'])) {
+            $this->excerpt = $data['excerpt'];
+        }
+
+        if (isset($data['content'])) {
+            $this->content = $data['content'];
+        }
+
+        if (isset($data['active'])) {
+            $this->active = (bool) $data['active'];
+        }
+
+        if ($this->isDirty()) {
+            $this->updatedAt = Carbon::now();
+        }
+
+        return $this;
+    }
 }

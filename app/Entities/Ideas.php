@@ -3,6 +3,8 @@
 namespace Larahack\Entities;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Larahack\Entities\Ideas\Categories\Category;
+use Larahack\Entities\Ideas\Criteria\ForCategory;
 use Larahack\Entities\Ideas\Criteria\WithCategory;
 use Larahack\Entities\Ideas\Idea;
 use Larahack\Entities\Ideas\IdeaRepository;
@@ -27,9 +29,26 @@ class Ideas
         $this->users          = $users;
     }
 
-    public function paginate(int $count = 20): LengthAwarePaginator
+    public function paginate(int $count = 20, ?Category $category = null): LengthAwarePaginator
     {
-        return $this->ideaRepository->pushCriteria(new WithCategory)->getPaginated($count);
+        if ($category) {
+            $this->ideaRepository->pushCriteria(new ForCategory($category));
+        } else {
+            $this->ideaRepository->pushCriteria(new WithCategory);
+        }
+
+        $results = $this->ideaRepository->getPaginated($count);
+
+        if ($category) {
+            // If we provided a category we will set that relationship on all of the items,
+            // because we didn't ask for it to be queried as we already have it
+            foreach ($results->items() as $idea) {
+                $idea->category   = $category;
+                $idea->categoryId = $category->id;
+            }
+        }
+
+        return $results;
     }
 
     public function find(int $id): ?Idea
@@ -58,6 +77,10 @@ class Ideas
 
     public function update(Idea $idea, array $data): bool
     {
+        Validators\UpdateValidator::validate($data);
 
+        $idea->update($data);
+
+        return $this->ideaRepository->persist($idea) !== null;
     }
 }

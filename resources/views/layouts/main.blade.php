@@ -32,9 +32,7 @@
 </header>
 
 <div class="container">
-    <main class="content">
-        @yield('content')
-    </main>
+    @yield('content')
 </div>
 
 <script src="{{ mix('js/app.js') }}"></script>

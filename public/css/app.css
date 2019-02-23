@@ -3225,6 +3225,14 @@ table {
   clear: both;
 }
 
+.font-primary {
+  font-family: Montserrat, sans-serif;
+}
+
+.font-secondary {
+  font-family: Source Sans Pro, sans-serif;
+}
+
 .font-sans {
   font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -6594,6 +6602,126 @@ table {
 
 .z-auto {
   z-index: auto;
+}
+
+/* cyrillic-ext */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek-ext */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+
+/* greek */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 .fa,
@@ -14766,6 +14894,12 @@ readers do not read off random characters that represent icons */
 body {
   background-color: #f0f4f8;
   color: #9fb3c8;
+  font-family: Montserrat, sans-serif;
+  padding-bottom: 1.5rem;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -14775,8 +14909,9 @@ body {
 
 .header {
   background-color: #fff;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .header > .container {
@@ -14785,12 +14920,17 @@ body {
 }
 
 .header__brand {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #486581;
 }
 
+.header__nav {
+  flex-grow: 1;
+  align-content: flex-start;
+}
+
 .header__nav-item {
-  color: #829ab1;
+  color: #627d98;
   text-decoration: none;
   margin-left: .75rem;
   margin-right: .75rem;
@@ -14805,79 +14945,129 @@ body {
 
 .header__nav-icon {
   margin-right: .25rem;
-  color: #9fb3c8;
+  color: #829ab1;
 }
 
-.ideas {
+.grid--horizontal {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
-.ideas > .idea {
-  width: 50%;
-  max-width: 50%;
+.sidebar {
+  width: 25%;
+  display: inline-block;
 }
 
-.idea {
-  flex-grow: 1;
-  margin-top: .5rem;
-  margin-bottom: 1.5rem;
+.sidebar--left {
+  padding-right: .75rem;
 }
 
-.idea__content {
+.sidebar--right {
+  padding-left: .75rem;
+}
+
+.content {
+  width: 75%;
+}
+
+.box {
   background-color: #fff;
-  border-radius: .5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  border-radius: .25rem;
+  margin-top: 1.5rem;
   border-width: 1px;
   border-color: #d9e2ec;
 }
 
-.idea__title,
-.idea__category,
-.idea__excerpt {
-  padding: .75rem;
-  width: 100%;
-  border-radius: .5rem;
+.box__header {
+  border-bottom-width: 1px;
+  border-color: #d9e2ec;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: Source Sans Pro, sans-serif;
+}
+
+.box__item {
+  border-bottom-width: 1px;
+  border-color: #d9e2ec;
+  position: relative;
+}
+
+.box__item-link {
+  text-decoration: none;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: block;
+  text-transform: capitalize;
+  color: #486581;
+}
+
+.box__item-link:hover {
+  background-color: #f0f4f8;
+}
+
+.idea {
+  text-decoration: none;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: block;
+  padding-bottom: 4rem;
+}
+
+.idea:hover {
+  background-color: #f0f4f8;
 }
 
 .idea__title {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   color: #486581;
-  font-size: 1.125rem;
   text-transform: capitalize;
-  padding-bottom: .5rem;
-  text-decoration: none;
-  background-color: #f0f4f8;
+  margin-bottom: .5rem;
 }
 
-.idea__category {
-  padding-top: 0;
-  color: #829ab1;
+.idea__description {
+  color: #9fb3c8;
   font-size: .875rem;
-  text-transform: capitalize;
-  text-decoration: none;
-  background-color: #f0f4f8;
-  border-radius: 0;
 }
 
-.idea__excerpt {
-  align-self: flex-end;
-  flex: 1 1 0%;
-  letter-spacing: 0;
-  line-height: 1.5;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.idea__options {
+  position: absolute;
+  left: .75rem;
+  bottom: 1rem;
+}
+
+.idea__options .idea__option {
+  margin-right: .5rem;
+}
+
+.button {
+  border-radius: .25rem;
+  border-color: #d9e2ec;
+  background-color: #fff;
+  font-family: Source Sans Pro, sans-serif;
+  text-transform: uppercase;
+  color: #486581;
+  font-size: .875rem;
+  border-width: 1px;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.button:hover {
+  background-color: #f0f4f8;
+}
+
+.button__icon {
+  margin-right: .25rem;
+  color: #627d98;
 }
 
 @media (min-width: 576px) {
@@ -17564,6 +17754,14 @@ body {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .sm\:font-primary {
+    font-family: Montserrat, sans-serif;
+  }
+
+  .sm\:font-secondary {
+    font-family: Source Sans Pro, sans-serif;
   }
 
   .sm\:font-sans {
@@ -23608,6 +23806,14 @@ body {
     clear: both;
   }
 
+  .md\:font-primary {
+    font-family: Montserrat, sans-serif;
+  }
+
+  .md\:font-secondary {
+    font-family: Source Sans Pro, sans-serif;
+  }
+
   .md\:font-sans {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
@@ -29650,6 +29856,14 @@ body {
     clear: both;
   }
 
+  .lg\:font-primary {
+    font-family: Montserrat, sans-serif;
+  }
+
+  .lg\:font-secondary {
+    font-family: Source Sans Pro, sans-serif;
+  }
+
   .lg\:font-sans {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
@@ -35690,6 +35904,14 @@ body {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .xl\:font-primary {
+    font-family: Montserrat, sans-serif;
+  }
+
+  .xl\:font-secondary {
+    font-family: Source Sans Pro, sans-serif;
   }
 
   .xl\:font-sans {

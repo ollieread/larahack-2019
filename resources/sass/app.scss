@@ -1,10 +1,12 @@
 @import "tailwind";
-@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
-@import "~@fortawesome/fontawesome-pro/scss/solid";
-@import "~@fortawesome/fontawesome-pro/scss/brands";
+@import "fonts";
 
 body {
-  @apply bg-neutral-100 text-neutral-400;
+  @apply bg-neutral-100 text-neutral-400 font-primary pb-6;
+}
+
+a {
+  @apply no-underline;
 }
 
 .container {
@@ -12,19 +14,21 @@ body {
 }
 
 .header {
-  @apply bg-white py-8;
+  @apply bg-white shadow py-4;
 
   & > .container {
     @apply flex justify-between;
   }
 
   &__brand {
-    @apply text-2xl text-neutral-700;
+    @apply text-xl text-neutral-700;
   }
 
   &__nav {
+    @apply flex-grow content-start;
+
     &-item {
-      @apply text-neutral-500 no-underline mx-3 px-2;
+      @apply text-neutral-600 no-underline mx-3 px-2;
 
       &:hover, &.active {
         @apply text-neutral-700;
@@ -32,40 +36,88 @@ body {
     }
 
     &-icon {
-      @apply mr-1 text-neutral-400;
+      @apply mr-1 text-neutral-500;
     }
   }
 }
 
-.ideas {
-  @apply flex flex-wrap my-4;
+.grid {
+  &--horizontal {
+    @apply flex flex-wrap;
+    @extend .grid;
+  }
+}
 
-  & > .idea {
-    @apply w-1/2;
-    max-width: config('width.1/2');
+.sidebar {
+  @apply w-1/4 inline-block;
+
+  &--left {
+    @apply pr-3;
+  }
+
+  &--right {
+    @apply pl-3;
+  }
+}
+
+.content {
+  @apply w-3/4;
+}
+
+.box {
+  @apply bg-white shadow rounded mt-6 border border-neutral-200;
+
+  &__header {
+    @apply border-b border-neutral-200 px-3 py-4 uppercase font-secondary;
+  }
+
+  &__item {
+    @apply border-b border-neutral-200 relative;
+
+    &-link {
+      @apply no-underline px-3 py-4 block capitalize text-neutral-700;
+
+      &:hover {
+        @apply bg-neutral-100;
+      }
+    }
   }
 }
 
 .idea {
-  @apply flex-grow mt-2 mb-6;
+  @apply no-underline px-3 py-4 block pb-16;
 
-  &__content {
-    @apply bg-white rounded-lg mx-4 h-full flex flex-col justify-start border border-neutral-200;
-  }
-
-  &__title, &__category, &__excerpt {
-    @apply p-3 w-full rounded-lg;
+  &:hover {
+    @apply bg-neutral-100;
   }
 
   &__title {
-    @apply rounded-b-none truncate text-neutral-700 text-lg capitalize pb-2 no-underline bg-neutral-100;
+    @apply text-neutral-700 capitalize mb-2;
   }
 
-  &__category {
-    @apply pt-0 text-neutral-500 text-sm capitalize no-underline bg-neutral-100 rounded-none;
+  &__description {
+    @apply text-neutral-400 text-sm;
+  }
+}
+
+.idea__options {
+  @apply absolute;
+  left: .75rem;
+  bottom: 1rem;
+
+  .idea__option {
+    @apply mr-2;
+  }
+}
+
+.button {
+  @apply rounded border-neutral-200 bg-white font-secondary uppercase text-neutral-700 text-sm border px-2 py-1;
+
+  &:hover {
+    @apply bg-neutral-100;
   }
 
-  &__excerpt {
-    @apply self-end flex-1 tracking-normal leading-normal py-4;
+  &__icon {
+    @apply mr-1 text-neutral-600;
   }
 }

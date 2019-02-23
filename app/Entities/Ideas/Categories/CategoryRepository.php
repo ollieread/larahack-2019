@@ -7,4 +7,8 @@ use Larahack\Support\Repository;
 class CategoryRepository extends Repository
 {
 
+    public function getAll()
+    {
+        return $this->criteriaQuery()->get();
+    }
 }

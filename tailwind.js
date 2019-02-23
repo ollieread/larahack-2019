@@ -205,6 +205,14 @@ module.exports = {
    */
 
   fonts: {
+    'primary': [
+      'Montserrat',
+      'sans-serif',
+    ],
+    'secondary': [
+      'Source Sans Pro',
+      'sans-serif',
+    ],
     'sans':  [
       'system-ui',
       'BlinkMacSystemFont',
