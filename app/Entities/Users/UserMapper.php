@@ -22,7 +22,7 @@ class UserMapper extends EntityMapper
      */
     public function map(EntityMapping $mapping)
     {
-        $mapping->setTable('user')
+        $mapping->setTable('users')
                 ->setKey('id')
                 ->setRepository(UserRepository::class);
 

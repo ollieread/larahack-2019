@@ -16,6 +16,7 @@ class CreateIdeasTable extends Migration
         Schema::create('ideas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('category_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('excerpt');
@@ -26,6 +27,10 @@ class CreateIdeasTable extends Migration
             $table->foreign('user_id', 'idea_user')
                   ->references('id')
                   ->on('users');
+
+            $table->foreign('category_id', 'idea_category')
+                  ->references('id')
+                  ->on('categories');
         });
     }
 

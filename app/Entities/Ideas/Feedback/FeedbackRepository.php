@@ -2,7 +2,9 @@
 
 namespace Larahack\Entities\Ideas\Feedback;
 
-class FeedbackRepository
+use Larahack\Support\Repository;
+
+class FeedbackRepository extends Repository
 {
 
 }

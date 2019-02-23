@@ -4,7 +4,10 @@ return [
 
     'mappers' => [
         \Larahack\Entities\Users\UserMapper::class,
+        \Larahack\Entities\Ideas\Categories\CategoryMapper::class,
+        \Larahack\Entities\Ideas\Tags\TagMapper::class,
         \Larahack\Entities\Ideas\IdeaMapper::class,
+        \Larahack\Entities\Ideas\Feedback\FeedbackMapper::class,
     ],
 
     'attributes' => [
@@ -18,9 +21,6 @@ return [
         'text'      => \Sprocketbox\Articulate\Attributes\TextAttribute::class,
         'array'     => \Sprocketbox\Articulate\Attributes\ArrayAttribute::class,
         'uuid'      => \Sprocketbox\Articulate\Attributes\UuidAttribute::class,
-        //'object_id'   => \Sprocketbox\Articulate\Attributes\MongoDB\ObjectIdColumn::class,
-        //'subdocument' => \Sprocketbox\Articulate\Attributes\MongoDB\SubdocumentColumn::class,
-        //'utc'         => \Sprocketbox\Articulate\Attributes\MongoDB\UtcColumn::class,
     ],
 
     'sources' => [

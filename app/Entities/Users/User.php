@@ -73,7 +73,7 @@ class User extends Entity implements Authenticatable
      */
     public function getAuthIdentifier()
     {
-        return $this->get($this->getAuthIdentifierName());
+        return $this->getAttribute($this->getAuthIdentifierName());
     }
 
     /**
@@ -83,7 +83,7 @@ class User extends Entity implements Authenticatable
      */
     public function getAuthPassword(): string
     {
-        return $this->get('password');
+        return $this->getAttribute('password');
     }
 
     /**
@@ -93,7 +93,7 @@ class User extends Entity implements Authenticatable
      */
     public function getRememberToken(): ?string
     {
-        return $this->get($this->getRememberTokenName());
+        return $this->getAttribute($this->getRememberTokenName());
     }
 
     /**
@@ -103,9 +103,9 @@ class User extends Entity implements Authenticatable
      *
      * @return void
      */
-    public function setRememberToken($value): string
+    public function setRememberToken($value)
     {
-        $this->set($this->getRememberTokenName(), $value);
+        $this->setAttribute($this->getRememberTokenName(), $value);
     }
 
     /**

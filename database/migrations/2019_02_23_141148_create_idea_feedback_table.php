@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateIdeaTagsTable extends Migration
+class CreateIdeaFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,20 @@ class CreateIdeaTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('idea_tags', function (Blueprint $table) {
+        Schema::create('idea_feedback', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('idea_id');
-            $table->unsignedInteger('tag_id');
+            $table->unsignedInteger('user_id');
+            $table->text('content');
             $table->timestamps();
 
-            $table->foreign('idea_id', 'tag_ideas')
+            $table->foreign('idea_id', 'feedback_idea')
                   ->references('id')
                   ->on('ideas');
 
-            $table->foreign('tag_id', 'idea_tag')
+            $table->foreign('user_id', 'feedback_user')
                   ->references('id')
-                  ->on('tags');
+                  ->on('users');
         });
     }
 
@@ -36,6 +37,6 @@ class CreateIdeaTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('idea_tags');
+        Schema::dropIfExists('idea_feedback');
     }
 }
