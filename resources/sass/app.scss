@@ -4,9 +4,7 @@
 @import "~@fortawesome/fontawesome-pro/scss/brands";
 
 body {
-  @apply bg-neutral-1000 text-neutral-100;
-  background-color: #102a43;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232680c2' fill-opacity='0.48'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  @apply bg-neutral-100 text-neutral-400;
 }
 
 .container {
@@ -14,27 +12,27 @@ body {
 }
 
 .header {
-  @apply bg-neutral-1000 border-b border-neutral-800 py-4;
+  @apply bg-white py-8;
 
   & > .container {
     @apply flex justify-between;
   }
 
   &__brand {
-
+    @apply text-2xl text-neutral-700;
   }
 
   &__nav {
     &-item {
-      @apply text-neutral-300 no-underline mx-3 px-2;
+      @apply text-neutral-500 no-underline mx-3 px-2;
 
       &:hover, &.active {
-        @apply text-neutral-100;
+        @apply text-neutral-700;
       }
     }
 
     &-icon {
-      @apply mr-1 text-neutral-500;
+      @apply mr-1 text-neutral-400;
     }
   }
 }
@@ -52,7 +50,7 @@ body {
   @apply flex-grow mt-2 mb-6;
 
   &__content {
-    @apply bg-neutral-900 rounded-lg mx-4 h-full flex flex-col justify-start border border-neutral-800;
+    @apply bg-white rounded-lg mx-4 h-full flex flex-col justify-start border border-neutral-200;
   }
 
   &__title, &__category, &__excerpt {
@@ -60,11 +58,11 @@ body {
   }
 
   &__title {
-    @apply rounded-b-none truncate text-neutral-300 text-lg capitalize pb-2 no-underline bg-neutral-1000;
+    @apply rounded-b-none truncate text-neutral-700 text-lg capitalize pb-2 no-underline bg-neutral-100;
   }
 
   &__category {
-    @apply pt-0 text-neutral-400 text-sm capitalize no-underline bg-neutral-1000 rounded-none;
+    @apply pt-0 text-neutral-500 text-sm capitalize no-underline bg-neutral-100 rounded-none;
   }
 
   &__excerpt {
