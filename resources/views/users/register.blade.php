@@ -14,27 +14,27 @@
                     <label for="login-display_name" class="field__label">Display Name</label>
                     <input type="text"
                            class="field__input {{ $errors->has('display_name') ? 'field__input--invalid' : '' }}"
-                           name="display_name" id="login-email">
+                           name="display_name" id="login-email" value="{{ old('display_name') }}">
                     {!! $errors->first('display_name', '<div class="field__feedback">:message</div>') !!}
                 </div>
                 <div class="field__container">
                     <label for="login-first_name" class="field__label">First Name</label>
                     <input type="text"
                            class="field__input {{ $errors->has('first_name') ? 'field__input--invalid' : '' }}"
-                           name="first_name" id="login-first_name">
+                           name="first_name" id="login-first_name" value="{{ old('first_name') }}">
                     {!! $errors->first('first_name', '<div class="field__feedback">:message</div>') !!}
                 </div>
                 <div class="field__container">
                     <label for="login-last_name" class="field__label">Last Name</label>
                     <input type="text"
                            class="field__input {{ $errors->has('last_name') ? 'field__input--invalid' : '' }}"
-                           name="last_name" id="login-last_name">
+                           name="last_name" id="login-last_name" value="{{ old('last_name') }}">
                     {!! $errors->first('last_name', '<div class="field__feedback">:message</div>') !!}
                 </div>
                 <div class="field__container">
                     <label for="login-email" class="field__label">Email</label>
                     <input type="email" class="field__input {{ $errors->has('email') ? 'field__input--invalid' : '' }}"
-                           name="email" id="login-email">
+                           name="email" id="login-email" value="{{ old('email') }}">
                     {!! $errors->first('email', '<div class="field__feedback">:message</div>') !!}
                 </div>
                 <div class="field__container">

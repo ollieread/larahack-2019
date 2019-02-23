@@ -1,0 +1,25 @@
+.user {
+  &__avatar {
+    @apply bg-white rounded-full border border-neutral-200 overflow-hidden shadow;
+    min-width: 100px;
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+
+    &--small {
+      @extend .user__avatar;
+      min-width: 50px;
+      min-height: 50px;
+      width: 50px;
+      height: 50px;
+    }
+
+    &--tiny {
+      @extend .user__avatar;
+      min-width: 35px;
+      min-height: 35px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

@@ -11,4 +11,11 @@ class CategoryRepository extends Repository
     {
         return $this->criteriaQuery()->get();
     }
+
+    public function findOneBySlug(string $slug)
+    {
+        return $this->criteriaQuery()
+                    ->where('slug', '=', $slug)
+                    ->first();
+    }
 }

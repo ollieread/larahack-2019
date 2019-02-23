@@ -2,11 +2,7 @@
   @apply px-3 py-4 flex;
 
   &__author {
-    @apply bg-white rounded-full border border-neutral-200 mx-4 overflow-hidden shadow;
-    min-width: 100px;
-    min-height: 100px;
-    width: 100px;
-    height: 100px;
+    @apply mx-4;
   }
 
   &__message {

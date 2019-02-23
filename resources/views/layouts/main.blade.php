@@ -28,6 +28,24 @@
                 Tags
             </a>
         </nav>
+        <div class="header__user">
+            @if ($currentUser)
+                <a href="{{ route('user:logout') }}" class="header__user-option">
+                    <i class="fas fa-sign-out fa-fw"></i> Logout
+                </a>
+
+                <div class="user__avatar--tiny">
+                    <img src="{{ $currentUser->avatar }}" alt="">
+                </div>
+            @else
+                <a href="{{ route('user:login.create') }}" class="header__user-option">
+                    <i class="fas fa-sign-in fa-fw"></i> Login
+                </a>
+                <a href="{{ route('user:register.create') }}" class="header__user-option">
+                    <i class="fas fa-user-plus fa-fw"></i> Register
+                </a>
+            @endif
+        </div>
     </div>
 </header>
 

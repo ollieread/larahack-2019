@@ -29,7 +29,7 @@
 
             @foreach ($feedback as $feedback)
                 <section class="comment">
-                    <div class="comment__author">
+                    <div class="comment__author user__avatar">
                         <img src="{{ $feedback->user->avatar }}" alt="" class="comment__author-avatar">
                     </div>
                     <div class="comment__message">
@@ -56,7 +56,7 @@
 
                 <main class="box__content">
                     <div class="box__item">
-                        <a href="#" class="item--link item--no-options">
+                        <a href="{{ route('category.view', $idea->category->slug) }}" class="item--link item--no-options">
                             <div class="item__title">
                                 {{ $idea->category->name }}
                             </div>

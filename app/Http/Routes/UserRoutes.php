@@ -39,6 +39,6 @@ class UserRoutes implements Routes
 
     private function authRoutes(Router $router)
     {
-
+        $router->get('/logout')->name('user:logout')->uses(Actions\Logout::class);
     }
 }

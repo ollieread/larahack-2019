@@ -18,21 +18,21 @@ a {
 }
 
 .header {
-  @apply bg-white shadow py-4;
+  @apply bg-white shadow;
 
   & > .container {
     @apply flex justify-between;
   }
 
   &__brand {
-    @apply text-xl text-neutral-700;
+    @apply text-xl text-neutral-700 py-4 content-center mr-4;
   }
 
   &__nav {
-    @apply flex-grow content-start;
+    @apply flex flex-grow py-2 justify-start content-center items-center;
 
     &-item {
-      @apply text-neutral-600 no-underline mx-3 px-2;
+      @apply text-neutral-600 no-underline mx-2 pr-2 py-2 self-center;
 
       &:hover, &.active {
         @apply text-neutral-700;
@@ -43,6 +43,18 @@ a {
       @apply mr-1 text-neutral-500;
     }
   }
+
+  &__user {
+    @apply flex justify-end items-center py-2;
+
+    &-option {
+      @apply text-neutral-600 mx-2 pr-2 py-2;
+
+      &:hover, &.active {
+        @apply text-neutral-700;
+      }
+    }
+  }
 }
 
 @import "components/grid";
@@ -51,3 +63,4 @@ a {
 @import "components/button";
 @import "components/form";
 @import "components/comment";
+@import "components/user";

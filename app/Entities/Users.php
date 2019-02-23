@@ -4,11 +4,9 @@ namespace Larahack\Entities;
 
 use Carbon\Carbon;
 use Illuminate\Auth\SessionGuard;
-use Illuminate\Container\Container;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Routing\UrlGenerator;
 use Larahack\Entities\Users\User;
 use Larahack\Entities\Users\UserRepository;
 use Larahack\Mail\Users\VerifyEmail;
@@ -120,6 +118,11 @@ class Users
         }
 
         return false;
+    }
+
+    public function deauth(): void
+    {
+        $this->auth->logout();
     }
 
     private function sendVerificationEmail(User $user): void
