@@ -13,6 +13,9 @@ class RouteServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routes = [
+        Routes\DefaultRoutes::class,
+        Routes\IdeaRoutes::class,
+        Routes\CategoryRoutes::class,
         Routes\UserRoutes::class,
     ];
 

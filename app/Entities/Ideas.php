@@ -3,6 +3,7 @@
 namespace Larahack\Entities;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Larahack\Entities\Ideas\Criteria\WithCategory;
 use Larahack\Entities\Ideas\Idea;
 use Larahack\Entities\Ideas\IdeaRepository;
 use Larahack\Entities\Users\User;
@@ -28,7 +29,7 @@ class Ideas
 
     public function paginate(int $count = 20): LengthAwarePaginator
     {
-        return $this->ideaRepository->getPaginated($count);
+        return $this->ideaRepository->pushCriteria(new WithCategory)->getPaginated($count);
     }
 
     public function find(int $id): ?Idea
@@ -38,7 +39,7 @@ class Ideas
 
     public function findBySlug(string $slug): ?Idea
     {
-        return $this->ideaRepository->findOneBySlug($slug);
+        return $this->ideaRepository->pushCriteria(new WithCategory)->findOneBySlug($slug);
     }
 
     public function create(array $data, ?User $user = null): ?Idea
