@@ -26,7 +26,7 @@
                     </div>
                 </main>
             </section>
-            
+
             @foreach ($feedback as $feedback)
                 <section class="comment">
                     <div class="comment__author">
@@ -34,6 +34,15 @@
                     </div>
                     <div class="comment__message">
                         {{ $feedback->content }}
+
+                        <footer class="comment__options">
+                            <a href="#" class="button">
+                                <i class="button__icon fas fa-flag fa-fw"></i> Report
+                            </a>
+                            <a href="#" class="button">
+                                <i class="button__icon fas fa-comment fa-fw"></i> Respond
+                            </a>
+                        </footer>
                     </div>
                 </section>
             @endforeach

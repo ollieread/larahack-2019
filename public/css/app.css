@@ -14978,6 +14978,13 @@ a {
   width: 75%;
 }
 
+.content__heading {
+  display: block;
+  color: #627d98;
+  font-size: 1.25rem;
+  padding: .75rem;
+}
+
 .content--center {
   width: 50%;
 }
@@ -15299,6 +15306,17 @@ a {
   top: 1.6rem;
   width: 1.9rem;
   height: 2rem;
+}
+
+.comment__options {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top-width: 1px;
+  border-color: #d9e2ec;
+}
+
+.comment__options * {
+  margin-right: .5rem;
 }
 
 .comment:nth-of-type(even) .comment__message {

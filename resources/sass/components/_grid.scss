@@ -20,6 +20,10 @@
 .content {
   @apply w-3/4;
 
+  &__heading {
+    @apply block text-neutral-600 text-xl p-3;
+  }
+
   &--center {
     @apply w-1/2;
   }
