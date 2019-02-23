@@ -56,6 +56,17 @@ class User extends Entity implements Authenticatable
         return $this->verifiedAt !== null;
     }
 
+    public function getAvatar()
+    {
+        return sprintf(
+            'https://www.gravatar.com/avatar/%s?s=%s&d=%s&r=%s',
+            md5(strtolower(trim($this->email))),
+            100,
+            'robohash',
+            'g'
+        );
+    }
+
     /**
      * Get the name of the unique identifier for the user.
      *

@@ -14,8 +14,11 @@ class RegistrationValidator extends Validator
     public function rules(): array
     {
         return [
-            'email'    => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'confirmed'],
+            'display_name' => [],
+            'first_name'   => ['required'],
+            'last_name'    => ['required'],
+            'email'        => ['required', 'email', Rule::unique('users', 'email')],
+            'password'     => ['required', 'confirmed'],
         ];
     }
 }

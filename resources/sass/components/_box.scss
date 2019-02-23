@@ -1,0 +1,48 @@
+.box {
+  @apply bg-white shadow rounded mt-6 border border-neutral-200;
+
+  &__header {
+    @apply border-b border-neutral-200 px-3 py-4 uppercase font-secondary;
+
+    &--primary {
+      @apply text-neutral-700;
+      @extend .box__header;
+    }
+  }
+
+  &__item {
+    @apply border-b border-neutral-200 relative;
+
+    &-link {
+      @apply no-underline px-3 py-4 block capitalize text-neutral-700;
+
+      &:hover {
+        @apply bg-neutral-100;
+      }
+    }
+
+    & + .box__footer {
+      @apply border-t-0;
+    }
+  }
+
+  &__footer {
+    @apply border-t border-neutral-200 px-3 py-4 flex items-center rounded-b;
+
+    &--secondary {
+      @apply bg-neutral-100 py-2;
+    }
+
+    &--right {
+      @apply justify-end;
+
+      .box__footer-link {
+        @apply mr-2 ml-0;
+      }
+    }
+
+    &-link {
+      @apply text-neutral-600 text-sm ml-2;
+    }
+  }
+}

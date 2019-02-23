@@ -1,0 +1,28 @@
+.button {
+  @apply rounded border-neutral-200 bg-white font-secondary uppercase text-neutral-700 text-sm border px-2 py-1;
+
+  &:hover {
+    @apply bg-neutral-100;
+  }
+
+  &__icon {
+    @apply mr-1 text-neutral-600;
+  }
+
+  &--primary {
+    @apply bg-blue-500 text-blue-900 border-blue-600;
+    @extend .button;
+
+    &:hover {
+      @apply bg-blue-400;
+    }
+
+    .button__icon {
+      @apply text-blue-800;
+    }
+  }
+
+  &--large {
+    @apply p-3;
+  }
+}

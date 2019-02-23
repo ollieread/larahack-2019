@@ -1,0 +1,53 @@
+.field {
+  &__container {
+    @apply mx-3 my-4 relative;
+  }
+
+  &__label {
+    @apply font-secondary uppercase text-neutral-700 text-sm mb-2 block;
+  }
+
+  &__input {
+    @apply rounded bg-white border border-neutral-200 block w-full p-3 outline-none text-neutral-400;
+
+    &:focus {
+      @apply shadow-inner;
+    }
+
+    &--invalid {
+      @apply pr-8;
+    }
+  }
+
+  &__feedback {
+    @apply text-sm;
+
+    .field__input--invalid + & {
+      @apply rounded bg-neutral-700 text-white px-3 py-2 mt-2;
+    }
+  }
+
+  &__status {
+    @apply absolute text-neutral-700 p-1;
+    top: .75rem;
+    right: .5rem;
+
+    &-icon {
+      @apply text-lg;
+    }
+
+    &--error {
+      @extend .field__status;
+    }
+
+    .field__label + & {
+      top: 32px;
+    }
+
+    &-message {
+      @apply absolute;
+      top: 32px;
+      right: 0;
+    }
+  }
+}

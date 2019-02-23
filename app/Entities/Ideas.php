@@ -6,6 +6,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Larahack\Entities\Ideas\Categories\Category;
 use Larahack\Entities\Ideas\Criteria\ForCategory;
 use Larahack\Entities\Ideas\Criteria\WithCategory;
+use Larahack\Entities\Ideas\Criteria\WithUser;
 use Larahack\Entities\Ideas\Idea;
 use Larahack\Entities\Ideas\IdeaRepository;
 use Larahack\Entities\Users\User;
@@ -37,6 +38,8 @@ class Ideas
             $this->ideaRepository->pushCriteria(new WithCategory);
         }
 
+        $this->ideaRepository->pushCriteria(new WithUser);
+
         $results = $this->ideaRepository->getPaginated($count);
 
         if ($category) {
@@ -58,7 +61,7 @@ class Ideas
 
     public function findBySlug(string $slug): ?Idea
     {
-        return $this->ideaRepository->pushCriteria(new WithCategory)->findOneBySlug($slug);
+        return $this->ideaRepository->pushCriteria(new WithCategory, new WithUser)->findOneBySlug($slug);
     }
 
     public function create(array $data, ?User $user = null): ?Idea

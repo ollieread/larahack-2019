@@ -1,0 +1,68 @@
+.comment {
+  @apply px-3 py-4 flex;
+
+  &__author {
+    @apply bg-white rounded-full border border-neutral-200 mx-4 overflow-hidden shadow;
+    min-width: 100px;
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+  }
+
+  &__message {
+    @apply flex-shrink bg-white border rounded-lg border-neutral-200 px-6 py-4 shadow relative;
+
+    &:before, &:after {
+      @apply absolute;
+      top: 1.5rem;
+      content: '';
+    }
+
+    &:before {
+      @apply bg-neutral-200;
+      width: 2rem;
+      height: 2.2rem;
+    }
+
+    &:after {
+      @apply bg-white;
+      top: 1.6rem;
+      width: 1.9rem;
+      height: 2rem;
+    }
+  }
+
+  &:nth-of-type(even) {
+    .comment__message {
+      @apply ml-6;
+
+      &:before, &:after {
+        -webkit-clip-path: polygon(100% 2%, 0 50%, 100% 100%);
+        clip-path: polygon(100% 2%, 0 50%, 100% 100%);
+        left: -2rem;
+      }
+
+      &:after {
+        left: -1.9rem;
+      }
+    }
+  }
+
+  &:nth-of-type(odd) {
+    @apply flex-row-reverse;
+
+    .comment__message {
+      @apply mr-6;
+
+      &:before, &:after {
+        -webkit-clip-path: polygon(0 0, 0 100%, 99% 50%);
+        clip-path: polygon(0 0, 0 100%, 99% 50%);
+        right: -2rem;
+      }
+
+      &:after {
+        right: -1.9rem;
+      }
+    }
+  }
+}

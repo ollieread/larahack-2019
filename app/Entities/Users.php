@@ -2,10 +2,13 @@
 
 namespace Larahack\Entities;
 
+use Carbon\Carbon;
 use Illuminate\Auth\SessionGuard;
+use Illuminate\Container\Container;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Routing\UrlGenerator;
 use Larahack\Entities\Users\User;
 use Larahack\Entities\Users\UserRepository;
 use Larahack\Mail\Users\VerifyEmail;
@@ -61,6 +64,11 @@ class Users
         return $this->user;
     }
 
+    public function find(int $id)
+    {
+        return $this->userRepository->findOneByid($id);
+    }
+
     public function auth(array $credentials, bool $rememberMe): bool
     {
         Validators\LoginValidator::validate($credentials);
@@ -86,13 +94,29 @@ class Users
     {
         Validators\RegistrationValidator::validate($data);
 
-        $data['active'] = true;
-        $user           = (new User)->create($data);
+        $data['active']   = true;
+        $data['password'] = $this->hasher->make($data['password']);
+        $user             = (new User)->create($data);
 
         if ($this->userRepository->persist($user)) {
             $this->sendVerificationEmail($user);
 
             return true;
+        }
+
+        return false;
+    }
+
+    public function verify(User $user): bool
+    {
+        if (!$user->verified) {
+            $user->verifiedAt = Carbon::now();
+
+            if ($this->userRepository->persist($user)) {
+                $this->auth->login($user);
+
+                return true;
+            }
         }
 
         return false;

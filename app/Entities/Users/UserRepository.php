@@ -70,4 +70,14 @@ class UserRepository extends Repository implements AuthRepository
 
         return $query->first();
     }
+
+    /**
+     * @param int $id
+     *
+     * @return null|\Larahack\Entities\Users\User
+     */
+    public function findOneByid(int $id)
+    {
+        return $this->retrieveById($id);
+    }
 }

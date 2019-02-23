@@ -1,0 +1,37 @@
+.item {
+  @apply no-underline px-3 py-4 block;
+
+  &--link {
+    @extend .item;
+
+    &:hover {
+      @apply bg-neutral-100;
+    }
+
+    &__description {
+      @apply text-neutral-400 text-sm;
+    }
+  }
+
+  &--options {
+    @apply pb-16;
+  }
+
+  &__title {
+    @apply text-neutral-700 capitalize mb-2;
+  }
+
+  &__description {
+    @apply text-neutral-400 leading-normal;
+  }
+}
+
+.item__controls {
+  @apply absolute;
+  left: .75rem;
+  bottom: 1rem;
+
+  .item__control {
+    @apply mr-2 inline-block;
+  }
+}

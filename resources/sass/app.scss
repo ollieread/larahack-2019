@@ -11,6 +11,10 @@ a {
 
 .container {
   @apply mx-auto;
+
+  &.single {
+    @apply flex min-h-screen content-center items-center justify-center;
+  }
 }
 
 .header {
@@ -41,83 +45,9 @@ a {
   }
 }
 
-.grid {
-  &--horizontal {
-    @apply flex flex-wrap;
-    @extend .grid;
-  }
-}
-
-.sidebar {
-  @apply w-1/4 inline-block;
-
-  &--left {
-    @apply pr-3;
-  }
-
-  &--right {
-    @apply pl-3;
-  }
-}
-
-.content {
-  @apply w-3/4;
-}
-
-.box {
-  @apply bg-white shadow rounded mt-6 border border-neutral-200;
-
-  &__header {
-    @apply border-b border-neutral-200 px-3 py-4 uppercase font-secondary;
-  }
-
-  &__item {
-    @apply border-b border-neutral-200 relative;
-
-    &-link {
-      @apply no-underline px-3 py-4 block capitalize text-neutral-700;
-
-      &:hover {
-        @apply bg-neutral-100;
-      }
-    }
-  }
-}
-
-.idea {
-  @apply no-underline px-3 py-4 block pb-16;
-
-  &:hover {
-    @apply bg-neutral-100;
-  }
-
-  &__title {
-    @apply text-neutral-700 capitalize mb-2;
-  }
-
-  &__description {
-    @apply text-neutral-400 text-sm;
-  }
-}
-
-.idea__options {
-  @apply absolute;
-  left: .75rem;
-  bottom: 1rem;
-
-  .idea__option {
-    @apply mr-2;
-  }
-}
-
-.button {
-  @apply rounded border-neutral-200 bg-white font-secondary uppercase text-neutral-700 text-sm border px-2 py-1;
-
-  &:hover {
-    @apply bg-neutral-100;
-  }
-
-  &__icon {
-    @apply mr-1 text-neutral-600;
-  }
-}
+@import "components/grid";
+@import "components/box";
+@import "components/item";
+@import "components/button";
+@import "components/form";
+@import "components/comment";

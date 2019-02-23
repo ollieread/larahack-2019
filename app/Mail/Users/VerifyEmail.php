@@ -3,13 +3,16 @@
 namespace Larahack\Mail\Users;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Container\Container;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Routing\UrlGenerator;
 use Larahack\Entities\Users\User;
 
 class VerifyEmail extends Mailable
 {
     use Queueable, SerializesModels;
+
     /**
      * @var \Larahack\Entities\Users\User
      */
@@ -35,8 +38,9 @@ class VerifyEmail extends Mailable
         return $this
             ->to($this->user->email, $this->user->name)
             ->subject(trans('users.mail.verify.subject'))
-            ->view('mail.users.verify', [
+            ->markdown('mail.users.verify', [
                 'user' => $this->user,
+                'url'  => Container::getInstance()->make(UrlGenerator::class)->signedRoute('user:verify', $this->user->id),
             ]);
     }
 }

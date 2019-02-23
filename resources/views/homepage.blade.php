@@ -26,20 +26,20 @@
                 <main class="box__content">
                     @foreach ($ideas as $idea)
                         <div class="box__item">
-                            <a href="{{ route('idea.view', $idea->slug) }}" class="idea">
-                                <div class="idea__title">
+                            <a href="{{ route('idea.view', $idea->slug) }}" class="item--link item--options">
+                                <div class="item__title">
                                     {{ $idea->title }}
                                 </div>
-                                <div class="idea__description">
+                                <div class="item__description">
                                     {{ $idea->excerpt }}
                                 </div>
                             </a>
-                            <div class="idea__options">
-                                <a href="#" class="button idea__option">
+                            <div class="item__controls">
+                                <a href="#" class="button item__control">
                                     <i class="button__icon fas fa-thumbs-up fa-fw"></i>
                                     I'm interested
                                 </a>
-                                <a href="#" class="button idea__option">
+                                <a href="#" class="button item__control">
                                     <i class="button__icon fas fa-comments fa-fw"></i>
                                     Feedback
                                 </a>
