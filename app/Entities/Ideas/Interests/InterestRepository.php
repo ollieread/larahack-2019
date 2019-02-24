@@ -2,7 +2,9 @@
 
 namespace Larahack\Entities\Ideas\Interests;
 
-class InterestRepository
+use Larahack\Support\Repository;
+
+class InterestRepository extends Repository
 {
 
 }

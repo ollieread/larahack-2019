@@ -11,21 +11,22 @@
 
 <header class="header">
     <div class="container">
-        <div class="header__brand">
+        <a href="/" class="header__brand">
             The Ideas Company
-        </div>
+        </a>
         <nav class="header__nav">
-            <a href="/" class="header__nav-item">
-                <i class="header__nav-icon fas fa-lightbulb fa-fw"></i>
+            <a href="{{ route('idea:index') }}" class="header__nav-item">
                 Ideas
             </a>
-            <a href="#" class="header__nav-item">
-                <i class="header__nav-icon fas fa-folder-tree fa-fw"></i>
+            <a href="{{ route('category:index') }}" class="header__nav-item">
                 Categories
             </a>
-            <a href="#" class="header__nav-item">
-                <i class="header__nav-icon fas fa-tag fa-fw"></i>
+            <a href="{{ route('tag:index') }}" class="header__nav-item">
                 Tags
+            </a>
+            <a href="{{ route('idea:create') }}" class="header__nav-item--stand-out">
+                <i class="header__nav-icon fas fa-plus fa-fw"></i>
+                Add an idea
             </a>
         </nav>
         <div class="header__user">

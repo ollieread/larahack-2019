@@ -56,7 +56,7 @@
 
                 <main class="box__content">
                     <div class="box__item">
-                        <a href="{{ route('category.view', $idea->category->slug) }}" class="item--link item--no-options">
+                        <a href="{{ route('category:view', $idea->category->slug) }}" class="item--link item--no-options">
                             <div class="item__title">
                                 {{ $idea->category->name }}
                             </div>

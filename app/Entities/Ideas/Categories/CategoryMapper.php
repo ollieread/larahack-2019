@@ -2,6 +2,7 @@
 
 namespace Larahack\Entities\Ideas\Categories;
 
+use Larahack\Entities\Stats\CategoryStats;
 use Sprocketbox\Articulate\Contracts\EntityMapping;
 use Sprocketbox\Articulate\Entities\EntityMapper;
 
@@ -27,6 +28,7 @@ class CategoryMapper extends EntityMapper
                 ->setRepository(CategoryRepository::class);
 
         $mapping->int('id')->setImmutable();
+        $mapping->entity('stats', CategoryStats::class)->setDynamic();
         $mapping->string('name');
         $mapping->string('slug');
         $mapping->text('description');
@@ -38,5 +40,6 @@ class CategoryMapper extends EntityMapper
 
         $mapping->belongsTo('parent', 'parent_id');
         $mapping->hasMany('children', 'parent_id');
+        $mapping->hasOne('stats', 'category_id');
     }
 }

@@ -13,6 +13,7 @@ use Sprocketbox\Articulate\Entities\Entity;
  * @property \Larahack\Entities\Users\User                $user
  * @property int                                          $categoryId
  * @property \Larahack\Entities\Ideas\Categories\Category $category
+ * @property \Larahack\Entities\Stats\IdeaStats           $stats
  * @property string                                       $title
  * @property string                                       $slug
  * @property string                                       $excerpt

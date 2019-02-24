@@ -9,6 +9,8 @@ use Larahack\Entities\Ideas\Feedback\Feedback;
 use Larahack\Entities\Ideas\Feedback\FeedbackRepository;
 use Larahack\Entities\Ideas\Idea;
 use Larahack\Entities\Ideas\IdeaRepository;
+use Larahack\Entities\Ideas\Interests\Interest;
+use Larahack\Entities\Ideas\Interests\InterestRepository;
 use Larahack\Entities\Users\User;
 use Larahack\Entities\Users\UserRepository;
 
@@ -30,10 +32,13 @@ class FixtureSeeder extends Seeder
         $container   = Container::getInstance();
         $this->faker = \Faker\Factory::create('en_gb');
 
-        $categories = $this->createCategories($container->make(CategoryRepository::class), random_int(10, 50));
+        /*$categories = $this->createCategories($container->make(CategoryRepository::class), random_int(10, 50));
         $users      = $this->createUsers($container->make(UserRepository::class), random_int(10, 50));
         $ideas      = $this->createIdeas($container->make(IdeaRepository::class), $categories, $users);
-        $this->createFeedback($container->make(FeedbackRepository::class), $ideas, $users);
+        $this->createFeedback($container->make(FeedbackRepository::class), $ideas, $users);*/
+        $ideas = $container->make(IdeaRepository::class)->getAll();
+        $users = $container->make(UserRepository::class)->getAll();
+        $this->createInterest($container->make(InterestRepository::class), $ideas, $users);
     }
 
     private function createCategories(CategoryRepository $repository, int $count): Collection
@@ -126,13 +131,41 @@ class FixtureSeeder extends Seeder
             $count = random_int(5, 25);
 
             for ($i = 0; $i < $count; $i++) {
+                $user     = $users->random();
                 $feedback = (new Feedback)->create([
-                    'user'    => $users->random(),
+                    'user'    => $user,
                     'idea'    => $idea,
                     'content' => $this->faker->realText(),
                 ]);
-                $repository->persist($feedback);
+                if ($repository->persist($feedback)) {
+                    $this->command->info(sprintf('Added feedback for idea %s (%s) from user %s (%s)', $idea->title, $idea->id, $user->name, $user->id));
+                }
             }
+        });
+    }
+
+    /**
+     * @param \Larahack\Entities\Ideas\Interests\InterestRepository $repository
+     * @param \Illuminate\Support\Collection                        $ideas
+     * @param \Illuminate\Support\Collection                        $users
+     */
+    private function createInterest(InterestRepository $repository, Collection $ideas, Collection $users)
+    {
+        $ideas->each(function (Idea $idea) use ($users, $repository) {
+            $ideaUsers = $users->random(random_int(1, $users->count()));
+
+            $ideaUsers->each(function (User $user) use ($idea, $repository) {
+                $interest = (new Interest)->create([
+                    'idea'             => $idea,
+                    'user'             => $user,
+                    'would_pay'        => $this->faker->boolean,
+                    'would_newsletter' => $this->faker->boolean,
+                    'subscribe'        => $this->faker->boolean,
+                ]);
+                if ($repository->persist($idea)) {
+                    $this->command->info(sprintf('Added interest for idea %s (%s) from user %s (%s)', $idea->title, $idea->id, $user->name, $user->id));
+                }
+            });
         });
     }
 }

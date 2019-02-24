@@ -37,6 +37,19 @@ a {
       &:hover, &.active {
         @apply text-neutral-700;
       }
+
+      &--stand-out {
+        @extend .header__nav-item;
+        @apply rounded-lg bg-blue-400 text-white pl-2;
+
+        & .header__nav-icon {
+          @apply text-blue-100;
+        }
+
+        &:hover, &.active {
+          @apply bg-blue-500 text-white;
+        }
+      }
     }
 
     &-icon {

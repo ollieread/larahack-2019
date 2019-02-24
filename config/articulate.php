@@ -5,9 +5,12 @@ return [
     'mappers' => [
         \Larahack\Entities\Users\UserMapper::class,
         \Larahack\Entities\Ideas\Categories\CategoryMapper::class,
+        \Larahack\Entities\Stats\CategoryStatsMapper::class,
         \Larahack\Entities\Ideas\Tags\TagMapper::class,
         \Larahack\Entities\Ideas\IdeaMapper::class,
+        \Larahack\Entities\Stats\IdeaStatsMapper::class,
         \Larahack\Entities\Ideas\Feedback\FeedbackMapper::class,
+        \Larahack\Entities\Ideas\Interests\InterestMapper::class,
     ],
 
     'attributes' => [

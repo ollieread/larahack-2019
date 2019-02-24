@@ -25,9 +25,10 @@ class Homepage extends Action
 
     public function __invoke()
     {
-        $ideas      = $this->ideas->paginate();
-        $categories = $this->categories->hierarchy();
+        $recentIdeas = $this->ideas->recent(6);
+        $topIdeas    = $this->ideas->top(6);
+        $categories  = $this->categories->hierarchy();
 
-        return $this->response()->view('homepage', compact('ideas', 'categories'));
+        return $this->response()->view('homepage', compact('recentIdeas', 'topIdeas', 'categories'));
     }
 }

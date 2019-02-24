@@ -16,6 +16,7 @@ class RouteServiceProvider extends ServiceProvider
         Routes\DefaultRoutes::class,
         Routes\IdeaRoutes::class,
         Routes\CategoryRoutes::class,
+        Routes\TagRoutes::class,
         Routes\UserRoutes::class,
     ];
 

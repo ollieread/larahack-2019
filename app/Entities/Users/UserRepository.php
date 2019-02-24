@@ -80,4 +80,15 @@ class UserRepository extends Repository implements AuthRepository
     {
         return $this->retrieveById($id);
     }
+
+    public function getAll(?int $count = 0)
+    {
+        $query = $this->criteriaQuery()->select('users.*');
+
+        if ($count) {
+            $query->limit($count);
+        }
+
+        return $query->get();
+    }
 }
