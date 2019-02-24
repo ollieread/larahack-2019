@@ -20,6 +20,8 @@ class UserRoutes implements Routes
                ->group(function (Router $router) {
                    $this->authRoutes($router);
                });
+
+        $router->get('/verify/{userId}')->name('user:verify')->uses(Actions\Verify::class);
     }
 
     private function guestRoutes(Router $router)
@@ -33,8 +35,6 @@ class UserRoutes implements Routes
             $router->get('/')->name('create')->uses(Actions\Login\Create::class);
             $router->post('/')->name('store')->uses(Actions\Login\Store::class);
         });
-
-        $router->get('/verify/{userId}')->name('user:verify')->uses(Actions\Verify::class);
     }
 
     private function authRoutes(Router $router)
