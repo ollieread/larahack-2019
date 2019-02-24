@@ -162,7 +162,7 @@ class FixtureSeeder extends Seeder
                     'would_newsletter' => $this->faker->boolean,
                     'subscribe'        => $this->faker->boolean,
                 ]);
-                if ($repository->persist($idea)) {
+                if ($repository->persist($interest)) {
                     $this->command->info(sprintf('Added interest for idea %s (%s) from user %s (%s)', $idea->title, $idea->id, $user->name, $user->id));
                 }
             });
