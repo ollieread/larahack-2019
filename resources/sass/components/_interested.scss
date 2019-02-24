@@ -2,6 +2,7 @@
   @apply flex flex-no-wrap my-4;
 
   &__option {
+    @extend .interested__option;
     @apply flex flex-col items-center justify-between py-4 text-xl text-neutral-700 min-h-full w-full border-r border-neutral-200 flex-grow;
 
     &:last-of-type {
@@ -21,7 +22,9 @@
     }
 
     &-controls, &-choices {
-      @apply text-base text-neutral-400 mt-2 p-2 block text-center;
+      @apply block text-base text-neutral-400 mt-2 p-2 block text-center;
+      height: 58px;
+      min-height: 58px;
     }
   }
 }

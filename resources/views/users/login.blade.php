@@ -10,6 +10,9 @@
             </header>
 
             <div class="box__content">
+                @component('components.alerts-inline', ['format' => 'inline', 'context' => 'login'])
+                @endcomponent
+
                 <div class="field__container">
                     <label for="login-email" class="field__label">Email</label>
                     <input type="email" class="field__input {{ $errors->has('email') ? 'field__input--invalid' : '' }}"

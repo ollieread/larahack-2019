@@ -8,7 +8,9 @@ use Illuminate\Container\Container;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory as ViewFactory;
+use Larahack\Composers\GlobalAlertComposer;
 use Larahack\Composers\MainLayoutComposer;
 use Larahack\Entities\Users;
 
@@ -24,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $view = Container::getInstance()->make(ViewFactory::class);
 
         $view->composer('layouts.main', MainLayoutComposer::class);
+        $view->composer('components.alerts-global', GlobalAlertComposer::class);
+
+        $blade = Container::getInstance()->make(BladeCompiler::class);
+
+        $blade->component('components.alerts', 'alerts');
     }
 
     /**

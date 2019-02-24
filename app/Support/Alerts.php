@@ -12,38 +12,38 @@ class Alerts
     public const WARNING = 'warning';
     public const INFO    = 'info';
 
-    public static function messages(string $type = null)
+    public static function messages(string $type = null, string $context = 'default')
     {
         if ($type) {
-            return self::session()->get(sprintf('alerts.%s', $type), []);
+            return self::session()->pull(sprintf('alerts.%s.%s', $context, $type), []);
         }
 
-        return self::session()->get('alerts', []);
+        return self::session()->pull(sprintf('alerts.%s', $context), []);
     }
 
-    public static function message(string $type, string $message): void
+    public static function message(string $type, string $message, string $context = 'default'): void
     {
-        self::session()->push(sprintf('alerts.%s', $type), $message);
+        self::session()->push(sprintf('alerts.%s.%s', $context, $type), $message);
     }
 
-    public static function success(string $message): void
+    public static function success(string $message, string $context = 'default'): void
     {
-        self::message(self::SUCCESS, $message);
+        self::message(self::SUCCESS, $message, $context);
     }
 
-    public static function error(string $message): void
+    public static function error(string $message, string $context = 'default'): void
     {
-        self::message(self::ERROR, $message);
+        self::message(self::ERROR, $message, $context);
     }
 
-    public static function warning(string $message): void
+    public static function warning(string $message, string $context = 'default'): void
     {
-        self::message(self::WARNING, $message);
+        self::message(self::WARNING, $message, $context);
     }
 
-    public static function info(string $message): void
+    public static function info(string $message, string $context = 'default'): void
     {
-        self::message(self::INFO, $message);
+        self::message(self::INFO, $message, $context);
     }
 
     /**

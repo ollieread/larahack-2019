@@ -2,22 +2,6 @@
 
 @section('content')
     <div class="grid--horizontal">
-        <aside class="sidebar sidebar--left">
-            <section class="box">
-                <header class="box__header">
-                    Categories
-                </header>
-
-                <main class="box__content">
-                    @foreach ($categories as $category)
-                        <div class="box__item">
-                            <a href="{{ route('category:view', $category->slug) }}"
-                               class="box__item-link">{{ $category->name }}</a>
-                        </div>
-                    @endforeach
-                </main>
-            </section>
-        </aside>
         <main class="content">
             <section class="box">
                 <header class="box__header">
@@ -39,7 +23,8 @@
                                     <i class="button__icon fas fa-comments fa-fw"></i>
                                     {{ $idea->stats->feedbackCount }}
                                 </a>
-                                <a href="{{ route('category:view', $idea->category->slug) }}" class="item__info item__control">
+                                <a href="{{ route('category:view', $idea->category->slug) }}"
+                                   class="item__info item__control">
                                     <i class="item__info-icon far fa-folder fa-fw"></i>
                                     {{ $idea->category->name }}
                                 </a>
@@ -79,7 +64,8 @@
                                     <i class="button__icon fas fa-comments fa-fw"></i>
                                     {{ $idea->stats->feedbackCount }}
                                 </a>
-                                <a href="{{ route('category:view', $idea->category->slug) }}" class="item__info item__control">
+                                <a href="{{ route('category:view', $idea->category->slug) }}"
+                                   class="item__info item__control">
                                     <i class="item__info-icon far fa-folder fa-fw"></i>
                                     {{ $idea->category->name }}
                                 </a>
@@ -99,5 +85,27 @@
                 </main>
             </section>
         </main>
+        <aside class="sidebar sidebar--right">
+            <section class="box">
+                <header class="box__header">
+                    Categories
+                </header>
+
+                <main class="box__content">
+                    @foreach ($categories as $category)
+                        <div class="box__item">
+                            <a href="{{ route('category:view', $category->slug) }}" class="item--link">
+                                <div class="item__title">
+                                    {{ $category->name }}
+                                </div>
+                                <div class="item__description">
+                                    {!! $category->parsedDescription !!}
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </main>
+            </section>
+        </aside>
     </div>
 @endsection

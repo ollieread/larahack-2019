@@ -15,4 +15,11 @@ class FeedbackRepository extends Repository
                     ->where('idea_id', '=', $idea->id)
                     ->get();
     }
+
+    public function findOneById(int $id)
+    {
+        return $this->criteriaQuery()
+                    ->where('id', '=', $id)
+                    ->first();
+    }
 }

@@ -14,10 +14,11 @@ class CreateValidator extends Validator
     public function rules(): array
     {
         return [
-            'title'   => ['required'],
-            'slug'    => ['required', Rule::unique('ideas', 'slug')],
-            'excerpt' => ['required'],
-            'content' => ['required'],
+            'title'    => ['required'],
+            'slug'     => ['required', Rule::unique('ideas', 'slug')],
+            'category' => ['required', Rule::exists('categories', 'id')],
+            'excerpt'  => ['required'],
+            'content'  => ['required'],
         ];
     }
 }

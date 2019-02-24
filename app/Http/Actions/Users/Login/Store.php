@@ -29,7 +29,7 @@ class Store extends Action
             return $this->response()->redirectToIntended();
         }
 
-        Alerts::error(trans('users.login.failure'));
+        Alerts::error(trans('users.login.failure'), 'login');
         return $this->response()->redirectToRoute('user:login.create');
     }
 }

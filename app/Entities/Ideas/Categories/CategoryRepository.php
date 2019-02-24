@@ -18,4 +18,11 @@ class CategoryRepository extends Repository
                     ->where('slug', '=', $slug)
                     ->first();
     }
+
+    public function findOneById(int $id)
+    {
+        return $this->criteriaQuery()
+                    ->where('id', '=', $id)
+                    ->first();
+    }
 }

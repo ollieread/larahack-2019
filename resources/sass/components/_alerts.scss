@@ -1,0 +1,13 @@
+.alert {
+  @apply px-3 py-4;
+
+  &--global {
+    @extend .alert;
+    @apply w-full bg-neutral-700 text-white;
+  }
+
+  &--inline {
+    @extend .alert;
+    @apply mx-3 my-2 bg-neutral-700 text-white rounded;
+  }
+}

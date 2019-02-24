@@ -27,10 +27,16 @@ class Ideas
      */
     private $users;
 
-    public function __construct(IdeaRepository $ideaRepository, Users $users)
+    /**
+     * @var \Larahack\Entities\Categories
+     */
+    private $categories;
+
+    public function __construct(IdeaRepository $ideaRepository, Users $users, Categories $categories)
     {
         $this->ideaRepository = $ideaRepository;
         $this->users          = $users;
+        $this->categories = $categories;
     }
 
     public function all(int $count = 20, bool $paginate = false, ?Category $category = null)
@@ -87,10 +93,12 @@ class Ideas
 
     public function create(array $data, ?User $user = null): ?Idea
     {
+        $data['slug'] = str_slug($data['title']);
         Validators\CreateValidator::validate($data);
 
-        $idea       = (new Idea)->create($data);
-        $idea->user = $user ?? $this->users->user();
+        $data['category'] = $this->categories->findOneById($data['category']);
+        $data['user'] = $user ?? $this->users->user();
+        $idea         = (new Idea)->create($data);
 
         if ($this->ideaRepository->persist($idea)) {
             return $idea;

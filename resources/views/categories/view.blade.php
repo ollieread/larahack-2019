@@ -9,12 +9,20 @@
                 </header>
 
                 <main class="box__content">
-                    @foreach ($categories as $category)
-                        <div class="box__item">
-                            <a href="{{ route('category:view', $category->slug) }}"
-                               class="box__item-link">{{ $category->name }}</a>
+                    @if ($categories && $categories->count())
+                        @foreach ($categories as $category)
+                            <div class="box__item">
+                                <a href="{{ route('category:view', $category->slug) }}"
+                                   class="box__item-link">{{ $category->name }}</a>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="box__item item">
+                            <div class="item__description">
+                                This category has no children, perhaps it's focusing on its career.
+                            </div>
                         </div>
-                    @endforeach
+                    @endif
                 </main>
             </section>
         </aside>
@@ -26,7 +34,7 @@
                 <main class="box__content">
                     <div class="box__item item">
                         <div class="item__description">
-                            {{ $category->description }}
+                            {!! $category->parsedDescription !!}
                         </div>
                         <div class="item__stats">
                             <div class="item__stat">
@@ -59,28 +67,40 @@
                     Ideas
                 </header>
                 <main class="box__content">
-                    @foreach ($ideas as $idea)
-                        <div class="box__item">
-                            <a href="{{ route('idea:view', $idea->slug) }}" class="item--link item--options">
-                                <div class="item__title">
-                                    {{ $idea->title }}
-                                </div>
-                                <div class="item__description">
-                                    {{ $idea->excerpt }}
-                                </div>
-                            </a>
-                            <div class="item__controls">
-                                <a href="#" class="button item__control">
-                                    <i class="button__icon fas fa-thumbs-up fa-fw"></i>
-                                    I'm interested
+                    @if ($ideas && $ideas->count())
+                        @foreach ($ideas as $idea)
+                            <div class="box__item">
+                                <a href="{{ route('idea:view', $idea->slug) }}" class="item--link item--options">
+                                    <div class="item__title">
+                                        {{ $idea->title }}
+                                    </div>
+                                    <div class="item__description">
+                                        {{ $idea->excerpt }}
+                                    </div>
                                 </a>
-                                <a href="#" class="button item__control">
-                                    <i class="button__icon fas fa-comments fa-fw"></i>
-                                    Feedback
+                                <div class="item__controls">
+                                    <a href="#" class="button item__control">
+                                        <i class="button__icon fas fa-thumbs-up fa-fw"></i>
+                                        I'm interested
+                                    </a>
+                                    <a href="#" class="button item__control">
+                                        <i class="button__icon fas fa-comments fa-fw"></i>
+                                        Feedback
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="box__item item">
+                            <div class="item__description">
+                                I'm afraid there are no ideas in this category. Why not be the one to
+                                <a href="{{ route('idea:create') }}?category={{ $category->id }}" class="button">
+                                    <i class="button__icon fas fa-plus fa-fw"></i>
+                                    add one
                                 </a>
                             </div>
                         </div>
-                    @endforeach
+                    @endif
                 </main>
             </section>
         </main>

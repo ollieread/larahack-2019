@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Larahack\Entities\Ideas\Categories\Category;
 use Larahack\Entities\Ideas\Categories\CategoryRepository;
 use Larahack\Entities\Ideas\Categories\Criteria\ForParent;
+use Larahack\Entities\Ideas\Categories\Criteria\OrderByHierarchy;
 use Larahack\Entities\Stats\Criteria\WithStats;
 
 class Categories
@@ -59,10 +60,22 @@ class Categories
         });
     }
 
-    public function findBySlug(string $slug)
+    public function findOneBySlug(string $slug)
     {
         $this->categoryRepository->pushCriteria(new WithStats);
 
         return $this->categoryRepository->findOneBySlug($slug);
+    }
+
+    public function all()
+    {
+        $this->categoryRepository->pushCriteria(new OrderByHierarchy);
+
+        return $this->categoryRepository->getAll();
+    }
+
+    public function findOneById(int $id)
+    {
+        return $this->categoryRepository->findOneById($id);
     }
 }

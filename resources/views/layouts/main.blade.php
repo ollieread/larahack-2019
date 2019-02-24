@@ -50,7 +50,9 @@
     </div>
 </header>
 
-<div class="container">
+@include('components.alerts-global')
+
+<div class="container" id="app">
     @yield('content')
 </div>
 

@@ -4,6 +4,7 @@ namespace Larahack\Http\Actions\Ideas;
 
 use Larahack\Entities\Feedback;
 use Larahack\Entities\Ideas;
+use Larahack\Entities\Interest;
 use Larahack\Entities\Users;
 use Larahack\Support\Action;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -24,11 +25,17 @@ class View extends Action
      */
     private $users;
 
-    public function __construct(Ideas $ideas, Feedback $feedback, Users $users)
+    /**
+     * @var \Larahack\Entities\Interest
+     */
+    private $interest;
+
+    public function __construct(Ideas $ideas, Feedback $feedback, Users $users, Interest $interest)
     {
         $this->ideas    = $ideas;
         $this->feedback = $feedback;
         $this->users    = $users;
+        $this->interest = $interest;
     }
 
     public function __invoke(string $slug)
@@ -38,8 +45,9 @@ class View extends Action
         if ($idea) {
             $feedback    = $this->feedback->findForIdea($idea);
             $currentUser = $this->users->user();
+            $interest    = $this->interest->findUsersInterestInIdea($idea, $currentUser);
 
-            return $this->response()->view('ideas.view', compact('idea', 'feedback', 'currentUser'));
+            return $this->response()->view('ideas.view', compact('idea', 'feedback', 'currentUser', 'interest'));
         }
 
         throw new NotFoundHttpException;

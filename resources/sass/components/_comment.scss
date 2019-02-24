@@ -1,4 +1,6 @@
 .comments {
+  @apply mt-3;
+
   .comment {
     @apply py-4 flex;
 
@@ -42,7 +44,7 @@
       }
     }
 
-    &:nth-of-type(even) {
+    &:nth-child(even) {
       .comment__message {
         @apply ml-6;
 
@@ -58,7 +60,7 @@
       }
     }
 
-    &:nth-of-type(odd) {
+    &:nth-child(odd) {
       @apply flex-row-reverse;
 
       .comment__message {

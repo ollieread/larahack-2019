@@ -24,7 +24,7 @@ use Sprocketbox\Articulate\Entities\Entity;
  */
 class Interest extends Entity
 {
-    public function create(array $data)
+    public function create(array $data): self
     {
         $this->idea            = $data['idea'];
         $this->ideaId          = $this->idea->id;
@@ -33,6 +33,31 @@ class Interest extends Entity
         $this->subscribe       = (bool) ($data['subscribe'] ?? false);
         $this->active          = (bool) ($data['active'] ?? true);
         $this->createdAt       = $this->updatedAt = Carbon::now();
+
+        return $this;
+    }
+
+    public function update(array $data): self
+    {
+        if (isset($data['would_pay'])) {
+            $this->wouldPay = (bool) $data['would_pay'];
+        }
+
+        if (isset($data['would_newsletter'])) {
+            $this->wouldNewsletter = (bool) $data['would_newsletter'];
+        }
+
+        if (isset($data['subscribe'])) {
+            $this->subscribe = (bool) $data['subscribe'];
+        }
+
+        if (isset($data['active'])) {
+            $this->active = (bool) $data['active'];
+        }
+
+        if ($this->isDirty()) {
+            $this->updatedAt = Carbon::now();
+        }
 
         return $this;
     }

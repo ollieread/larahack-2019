@@ -3,6 +3,7 @@
 namespace Larahack\Entities\Ideas\Categories;
 
 use Carbon\Carbon;
+use League\CommonMark\CommonMarkConverter;
 use Sprocketbox\Articulate\Entities\Entity;
 
 /**
@@ -35,5 +36,11 @@ class Category extends Entity
         $this->createdAt   = $this->updatedAt = Carbon::now();
 
         return $this;
+    }
+
+    public function getParsedDescription(): string
+    {
+        $markdown = new CommonMarkConverter;
+        return $markdown->convertToHtml($this->description);
     }
 }

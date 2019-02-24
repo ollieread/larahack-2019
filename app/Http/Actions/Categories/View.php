@@ -27,7 +27,7 @@ class View extends Action
 
     public function __invoke(string $slug)
     {
-        $category = $this->categories->findBySlug($slug);
+        $category = $this->categories->findOneBySlug($slug);
 
         if ($category) {
             $ideas    = $this->ideas->paginate(20, $category);

@@ -3,6 +3,7 @@
 namespace Larahack\Entities\Ideas;
 
 use Carbon\Carbon;
+use League\CommonMark\CommonMarkConverter;
 use Sprocketbox\Articulate\Entities\Entity;
 
 /**
@@ -82,5 +83,11 @@ class Idea extends Entity
         }
 
         return $this;
+    }
+
+    public function getParsedContent(): string
+    {
+        $markdown = new CommonMarkConverter;
+        return $markdown->convertToHtml($this->content);
     }
 }
