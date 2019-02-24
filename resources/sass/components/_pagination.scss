@@ -1,0 +1,16 @@
+.pagination {
+  @apply mt-2 flex justify-center items-center content-center;
+
+  a, span {
+    @apply w-24 text-center shadow;
+    @extend .button;
+
+    &:first-child {
+      @apply rounded-r-none mr-0 border-r-0;
+    }
+
+    &:last-child {
+      @apply rounded-l-none ml-0;
+    }
+  }
+}

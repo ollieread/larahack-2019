@@ -2,11 +2,11 @@
 
 namespace Larahack\Entities;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Larahack\Entities\Ideas\Categories\Category;
 use Larahack\Entities\Ideas\Categories\CategoryRepository;
 use Larahack\Entities\Ideas\Categories\Criteria\ForParent;
-use Larahack\Entities\Ideas\Categories\Criteria\OrderByHierarchy;
 use Larahack\Entities\Stats\Criteria\WithStats;
 
 class Categories
@@ -67,15 +67,26 @@ class Categories
         return $this->categoryRepository->findOneBySlug($slug);
     }
 
-    public function all()
-    {
-        $this->categoryRepository->pushCriteria(new OrderByHierarchy);
-
-        return $this->categoryRepository->getAll();
-    }
-
     public function findOneById(int $id)
     {
         return $this->categoryRepository->findOneById($id);
+    }
+
+    public function all(int $count = 20, bool $paginate = false, ?Category $category = null)
+    {
+        $this->categoryRepository->pushCriteria(new WithStats);
+
+        if ($paginate) {
+            return $this->categoryRepository->getPaginated($count);
+        }
+
+        return $this->categoryRepository->getAll($count);
+    }
+
+    public function paginate(int $count = 20, ?Category $category = null): LengthAwarePaginator
+    {
+        $this->categoryRepository->resetCriteria();
+
+        return $this->all($count, true, $category);
     }
 }

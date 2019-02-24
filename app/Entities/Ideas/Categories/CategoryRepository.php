@@ -2,14 +2,21 @@
 
 namespace Larahack\Entities\Ideas\Categories;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Larahack\Support\Repository;
 
 class CategoryRepository extends Repository
 {
 
-    public function getAll()
+    public function getAll(?int $count = 0)
     {
-        return $this->criteriaQuery()->get();
+        $query = $this->criteriaQuery()->select('categories.*');
+
+        if ($count) {
+            $query->limit($count);
+        }
+
+        return $query->get();
     }
 
     public function findOneBySlug(string $slug)
@@ -24,5 +31,11 @@ class CategoryRepository extends Repository
         return $this->criteriaQuery()
                     ->where('id', '=', $id)
                     ->first();
+    }
+
+
+    public function getPaginated(int $count): LengthAwarePaginator
+    {
+        return $this->paginate($this->criteriaQuery()->select('categories.*'), $count);
     }
 }

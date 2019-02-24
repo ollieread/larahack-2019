@@ -47,7 +47,7 @@ class Ideas
             $this->ideaRepository->pushCriteria(new WithCategory);
         }
 
-        $this->ideaRepository->pushCriteria(new WithUser, new WithStats);
+        $this->ideaRepository->pushCriteria(new WithUser, new WithStats, new OrderByRecent);
 
         if ($paginate) {
             $results = $this->ideaRepository->getPaginated($count);
