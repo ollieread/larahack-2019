@@ -1,5 +1,5 @@
 .button {
-  @apply rounded border-neutral-200 bg-white font-secondary uppercase text-neutral-700 text-sm border px-2 py-1;
+  @apply inline-block rounded border-neutral-200 bg-white font-secondary uppercase text-neutral-700 text-sm border px-2 py-1;
 
   &:hover {
     @apply bg-neutral-100;
@@ -7,6 +7,45 @@
 
   &__icon {
     @apply mr-1 text-neutral-600;
+  }
+
+  &--dark {
+    @apply bg-neutral-700 text-white border-neutral-500;
+    @extend .button;
+
+    &:hover {
+      @apply bg-neutral-800;
+    }
+
+    .button__icon {
+      @apply text-neutral-100;
+    }
+  }
+
+  &--success {
+    @apply bg-green text-white border-green-light;
+    @extend .button;
+
+    &:hover, &.active {
+      @apply bg-green-dark;
+    }
+
+    .button__icon {
+      @apply text-green-lightest;
+    }
+  }
+
+  &--failure {
+    @apply bg-red-light text-white border-red-lighter;
+    @extend .button;
+
+    &:hover, &.active {
+      @apply bg-red;
+    }
+
+    .button__icon {
+      @apply text-red-lightest;
+    }
   }
 
   &--primary {

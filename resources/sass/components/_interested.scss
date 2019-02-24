@@ -1,0 +1,27 @@
+.interested {
+  @apply flex flex-no-wrap my-4;
+
+  &__option {
+    @apply flex flex-col items-center justify-between py-4 text-xl text-neutral-700 min-h-full w-full border-r border-neutral-200 flex-grow;
+
+    &:last-of-type {
+      @apply border-none;
+    }
+
+    &--primary {
+      @extend .interested__option;
+    }
+
+    &-icon {
+      @apply text-5xl mb-3;
+    }
+
+    &-question {
+      @apply text-center;
+    }
+
+    &-controls, &-choices {
+      @apply text-base text-neutral-400 mt-2 p-2 block text-center;
+    }
+  }
+}
