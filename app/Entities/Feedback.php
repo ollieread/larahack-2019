@@ -2,6 +2,7 @@
 
 namespace Larahack\Entities;
 
+use Larahack\Entities\Ideas\Feedback\Criteria\OrderByRecentAndParent;
 use Larahack\Entities\Ideas\Feedback\FeedbackRepository;
 use Larahack\Entities\Ideas\Idea;
 
@@ -19,6 +20,6 @@ class Feedback
 
     public function findForIdea(Idea $idea)
     {
-        return $this->feedbackRepository->findForIdea($idea);
+        return $this->feedbackRepository->pushCriteria(new OrderByRecentAndParent)->findForIdea($idea);
     }
 }

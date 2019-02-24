@@ -82,7 +82,7 @@ class Ideas
 
     public function findBySlug(string $slug): ?Idea
     {
-        return $this->ideaRepository->pushCriteria(new WithCategory, new WithUser)->findOneBySlug($slug);
+        return $this->ideaRepository->pushCriteria(new WithCategory, new WithUser, new WithStats)->findOneBySlug($slug);
     }
 
     public function create(array $data, ?User $user = null): ?Idea

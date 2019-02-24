@@ -15195,6 +15195,7 @@ a {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  margin-top: .75rem;
 }
 
 .item__stat {
@@ -15344,7 +15345,8 @@ a {
   display: block;
 }
 
-.field__input {
+.field__input,
+.comment__message-input {
   border-radius: .25rem;
   background-color: #fff;
   border-width: 1px;
@@ -15356,7 +15358,8 @@ a {
   color: #9fb3c8;
 }
 
-.field__input:focus {
+.field__input:focus,
+.comment__message-input:focus {
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
 }
 
@@ -15404,8 +15407,6 @@ a {
 }
 
 .comment {
-  padding-left: .75rem;
-  padding-right: .75rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
@@ -15417,15 +15418,12 @@ a {
 }
 
 .comment__message {
-  flex-shrink: 1;
+  flex-grow: 1;
   background-color: #fff;
   border-width: 1px;
   border-radius: .5rem;
   border-color: #d9e2ec;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   position: relative;
 }
@@ -15448,6 +15446,11 @@ a {
   top: 1.6rem;
   width: 1.9rem;
   height: 2rem;
+}
+
+.comment__message-input {
+  width: 100%;
+  outline: 0;
 }
 
 .comment__options {

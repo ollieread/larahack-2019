@@ -1,12 +1,12 @@
 .comment {
-  @apply px-3 py-4 flex;
+  @apply py-4 flex;
 
   &__author {
     @apply mx-4;
   }
 
   &__message {
-    @apply flex-shrink bg-white border rounded-lg border-neutral-200 px-6 py-4 shadow relative;
+    @apply flex-grow bg-white border rounded-lg border-neutral-200 p-6 shadow relative;
 
     &:before, &:after {
       @apply absolute;
@@ -25,6 +25,11 @@
       top: 1.6rem;
       width: 1.9rem;
       height: 2rem;
+    }
+
+    &-input {
+      @apply w-full outline-none;
+      @extend .field__input;
     }
   }
 
