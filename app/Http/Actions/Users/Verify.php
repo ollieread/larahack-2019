@@ -25,11 +25,11 @@ class Verify extends Action
 
         if ($user) {
             if ($this->users->verify($user)) {
-                Alerts::success(trans('users.verify.success'));
+                Alerts::success(trans('users.verify.success'), 'global');
                 return $this->response()->redirectTo('/');
             }
 
-            Alerts::error(trans('users.verify.failure'));
+            Alerts::error(trans('users.verify.failure'), 'global');
             return $this->response()->redirectRoute('users:login.create');
         }
 
