@@ -30,7 +30,7 @@
                 <div class="interested__option-choices">
                     <button type="button" class="button--failure button--large">
                         <i class="button__icon fas fa-times fa-fw"></i>
-                        No
+                        I would no longer pay
                     </button>
                 </div>
             </template>
@@ -52,7 +52,7 @@
                 <div class="interested__option-choices">
                     <button type="button" class="button--failure button--large">
                         <i class="button__icon fas fa-times fa-fw"></i>
-                        No
+                        I wouldn't like updates
                     </button>
                 </div>
             </template>

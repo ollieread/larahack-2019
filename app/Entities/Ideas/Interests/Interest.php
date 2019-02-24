@@ -28,6 +28,8 @@ class Interest extends Entity
     {
         $this->idea            = $data['idea'];
         $this->ideaId          = $this->idea->id;
+        $this->user            = $data['user'];
+        $this->userId          = $this->user->id;
         $this->wouldPay        = (bool) ($data['would_pay'] ?? false);
         $this->wouldNewsletter = (bool) ($data['would_newsletter'] ?? false);
         $this->subscribe       = (bool) ($data['subscribe'] ?? false);
