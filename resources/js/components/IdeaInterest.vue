@@ -1,6 +1,12 @@
 <template>
     <div class="interested">
 
+        <div class="interested__overlay" v-if="!loggedIn">
+            <a href="/login" class="button--dark button--large">
+                You must login to register interest in an idea
+            </a>
+        </div>
+
         <div class="interested__option--primary">
             <i class="interested__option-icon fas fa-thumbs-up fa-fw"></i>
             <template v-if="interested">
@@ -104,7 +110,7 @@
 
     methods: {
       registerInterest () {
-        if (!this.interested) {
+        if (this.loggedIn && !this.interested) {
           window.axios
                 .post('/idea/' + this.idea + '/interest/add', {})
                 .then((response) => {
@@ -116,7 +122,7 @@
       },
 
       registerWouldPay () {
-        if (this.interested && !this.wouldPay) {
+        if (this.loggedIn && this.interested && !this.wouldPay) {
           window.axios
                 .post('/idea/' + this.idea + '/interest/add', {
                   would_pay: true,
@@ -130,7 +136,7 @@
       },
 
       registerWouldNewsletter () {
-        if (this.interested && !this.wouldNewsletter) {
+        if (this.loggedIn && this.interested && !this.wouldNewsletter) {
           window.axios
                 .post('/idea/' + this.idea + '/interest/add', {
                   would_newsletter: true,

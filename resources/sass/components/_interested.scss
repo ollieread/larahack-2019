@@ -1,5 +1,10 @@
 .interested {
-  @apply flex flex-no-wrap my-4;
+  @apply flex flex-no-wrap my-4 relative;
+
+  &__overlay {
+    @apply absolute pin flex justify-center items-center content-center;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 
   &__option {
     @extend .interested__option;

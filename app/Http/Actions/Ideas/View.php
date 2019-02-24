@@ -45,7 +45,12 @@ class View extends Action
         if ($idea) {
             $feedback    = $this->feedback->findForIdea($idea);
             $currentUser = $this->users->user();
-            $interest    = $this->interest->findUsersInterestInIdea($idea, $currentUser);
+
+            if ($currentUser) {
+                $interest = $this->interest->findUsersInterestInIdea($idea, $currentUser);
+            } else {
+                $interest = null;
+            }
 
             return $this->response()->view('ideas.view', compact('idea', 'feedback', 'currentUser', 'interest'));
         }

@@ -16,16 +16,14 @@
                 </main>
             </section>
 
-            @if ($currentUser)
-                <section class="box">
-                    <main class="box__content">
-                        <idea-interest
-                                :logged-in="{{ isset($currentUser) && $currentUser ? 'true' : 'false' }}"
-                                :current-interest="{interested: {{ $interest ? 'true' : 'false' }}, wouldPay: {{ $interest && $interest->wouldPay ? 'true' : 'false' }}, wouldNewsletter: {{ $interest && $interest->wouldNewsletter ? 'true' : 'false' }}}"
-                                idea="{{ $idea->slug }}"></idea-interest>
-                    </main>
-                </section>
-            @endif
+            <section class="box">
+                <main class="box__content">
+                    <idea-interest
+                            :logged-in="{{ isset($currentUser) && $currentUser ? 'true' : 'false' }}"
+                            :current-interest="{interested: {{ $interest ? 'true' : 'false' }}, wouldPay: {{ $interest && $interest->wouldPay ? 'true' : 'false' }}, wouldNewsletter: {{ $interest && $interest->wouldNewsletter ? 'true' : 'false' }}}"
+                            idea="{{ $idea->slug }}"></idea-interest>
+                </main>
+            </section>
 
             <div class="comments">
                 @if ($currentUser)
