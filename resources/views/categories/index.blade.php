@@ -15,7 +15,7 @@
                                     {{ $category->name }}
                                 </div>
                                 <div class="item__description">
-                                    {{ $category->description }}
+                                    {!! $category->parsedDescription !!}
                                 </div>
                             </a>
                             <div class="item__controls">
